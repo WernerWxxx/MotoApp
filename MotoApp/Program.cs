@@ -3,255 +3,340 @@ using MotoApp.Entities;
 using MotoApp.Repositories;
 using System;
 using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Drawing;
 using System.Globalization;
-//using System;
-//using System;
 
-// Zmiany w Kodzie Prog
-// KODY w Pliku z LEKCJI 21  - Zmieniony Cały Kod w Pliku
-//                           - Zapis Całego Kodu - Zobacz nr 1 Lekcja 21
-
-// KODY w Pliku z LEKCJI 19
-//                         - Do Czego Służą INTERFACE
-// Opis Lekcja 17
-// Zmiany w Kodzie Prog w Pliku Program.cs nowa Wer Wpisu __SqlRepository__ Metody w Klasie 4:00 min
-// 
-
-
-var employeeRepository = new SqlRepository<Employee>(new MotoAppDbContext()); //  Lekcja 21
+var employeeRepository = new SqlRepository<Employee>(new MotoAppDbContext());
 AddEmployees(employeeRepository);
 AddMenagers(employeeRepository);
 WriteAllToConsole(employeeRepository);
 
-
-// Używając tej samej generycznej klasy jesteśmy w stanie zadeklarować innym typ danych
-//SqlRepository<int> charArray = new SqlRepository<int>(5);
-//for (int i = 0; i < 5; i++)
-//{
-  //  charArray.setGenericValue(i, (char)(i + 97));
-//}
 static void AddEmployees(IRepository<Employee> employeeRepository)
 {
+    Console.WriteLine("Podaj Wartość Kursu Waluty:  EURO - Unia Europejska");
+    var przelicznik = Console.ReadLine();
 
-    //------------------------3
-
-    Console.WriteLine("Podaj kolejną ocenę pracownika: ");
-    //-var input = Console.ReadLine();
-    //-employeeRepository.Add(new Employee {num = input()});
-    //if (Int32.TryParse(inputString, out int numValue))
-    //if (Int32.TryParse( out float num))
-    //var input = Console.ReadLine();
-    //=  if (input = "q")
-    //-{
-    // break;
-    //-}
-    //Console.ReadLine();
-    //num = Convert.ToInt32(Console.ReadLine());
-    //}
-    //-----------------------------3
-    //var b = Console.ReadLine();
-    //if (float.TryParse(b, out float num))
-    //var b = Console.ReadLine();
-    //if (float.TryParse(b, out float j))
-    //var b = Console.ReadLine();
-    //if (float.TryParse(b, out float num))
-    //if (float.TryParse(b, out float j))  //--- 2
-    //Console.WriteLine("Kurs Waluty - Euro");
-    //employeeRepository.Add(new Employee { FirstName = b + "  " + "a" + " (Dolar Amerykański USD)" } );
-    // employeeRepository.Add(new Employee { num = num });
-
-
-    // var b3a = Console.ReadLine();
-
-    //if (b3a == "q")
-    //{
-    //break;
-    //}
-
-    //if (float.TryParse(b3a, out float b3)) < ----------
-
-    //employeeRepository.Add(new Employee { num = b3 });
-
-
-
-    //var b3 = 0;
-    //var b3 = Calculation();
-    //employeeRepository.Calculation();
-
-
-
-    //  var input = Console.ReadLine();
-    //if (string.TryParse(input1, out char input))
-    //      if (input == "q")
-    //     {
-    //     break;
-    //     }
-
-    // switch (input)
-    // {
-    //     case "A":
-    //     case "a":
-    //   var input1 = Console.ReadLine();
-    //  if (float.TryParse(input1, out float input2))
-
-    //      employeeRepository.Add(new Employee { num = input2 }); 
-
-
-
-
-    //employeeRepository.Add(new Employee { FirstName = " (EURO - Unia Europejska)" + " " });
-    //MetodaWpisywaWartości("nazwa");  // - Wywołanie Metody
-    //      break;
-    // case "B":
-    //case "b":
-    //MetodaWpisywaWartości("nazwa");  // - Wywołanie Metody
-    //   break;
-    //  default: //   NOWY WPIS W KODZIE PROGRAMU
-    //throw new Exception("Wrong Letter"); // -- > 1b w Pliku Employee.cs
-    //this.grades.Add(0);
-    //  Console.WriteLine("Wrong Letter");
-    //  break;
-
-
-
-
-    //employeeRepository.Add(new Employee { num = b3 });
-    //while (true)
-    //{
-    //var b2b = Console.ReadLine();
-    //if (float.TryParse(b2b, out float b2b2))
-    //var input = Console.ReadLine();  // <<<<<< ----------------------------------
-    //if (float.TryParse(input, out float b2b2))
-    //  if (input == "q")
-    //{
-    //  break;
-    //}
-    //{
-
-    //}
-    //else (input == "q")
-    // {
-    //   break;
-    // }
-
-
-    //var b3 = Calculation();
-    //employeeRepository.Calculation();
-    //
-    // employeeRepository.Calculation();
-    //var input = employeeRepositoryGetAll();
-    //
-    //var input = Console.ReadLine();
-
-    //employeeRepository.Calculation();
-    //var b2b = 2.990f;
-    //employeeRepository.Add(new Employee { num = b3 });
-    //  employeeRepository.Add(new Employee { num = num });
-
-    //employeeRepository.Add(new Employee { num = b2b });
-    //employeeRepository.Add(new Employee { num = num });
-    //var b3 = Console.ReadLine();
-    //if (float.TryParse(b3, out float b3b))
-    Console.WriteLine("Podaj Wartość Kursu Waluty: ");
-    //var b2 = Console.ReadLine();
-    var przelicznik = double.Parse(Console.ReadLine());
-    //if (float.TryParse(euro, out float eurob))
-        //var euro = 1;
-        //const float przelicznik = prze;
-        const double euro = 1.00d;
-    double zł = Math.Round(przelicznik / euro, 2);
-    //var zł = Math.Round(euro / przelicznik, 2);
-    Console.WriteLine("{0} euro = {1} zł", euro, zł);
-    //Console.ReadKey();
-    employeeRepository.Add(new Employee { FirstName = " (EURO - Unia Europejska)", num = zł });
-    //}
-    Console.WriteLine("Podaj Wartość Waluty: EURO - Unia Europejska 2x");
-    var przelicznik2 = double.Parse(Console.ReadLine());
-    //if (float.TryParse(euro, out float eurob))
-    //var euro = 1;
-    //const float przelicznik = prze;
-    const double euro2 = 1.00d;
-    double zł2 = Math.Round(przelicznik2 / euro2, 2);
-    //var zł = Math.Round(euro / przelicznik, 2);
-    Console.WriteLine("{0} euro = {1} zł", euro2, zł2);
-    //var b3 = 0;
-    //employeeRepository.Calculation();
-    //var b3a = Console.ReadLine();
-      //  if (double.TryParse(b3a, out double b3))
-
-            employeeRepository.Add(new Employee { FirstName = " (EURO - Unia Europejska)", num = zł2 });
-
-   // WSTAW
-        Console.WriteLine("Podaj Wartość Złota: ");
-        var b20 = Console.ReadLine();
-        if (float.TryParse(b20, out float b20a))
-            employeeRepository.Add(new Employee { FirstName = " (Złota Sztabka5-50g))", num = b20a });
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Sztabka5-20g)", num = b4 });
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Sztabka5-10g)", num = b4 });
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Sztabka5-5g)", num = b4 });
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Moneta 1/2 uncji)" });
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Moneta 1/4 uncji)" });
-        Console.WriteLine("Podaj Wartość Złota: ");
-        var b21 = Console.ReadLine();
-        if (float.TryParse(b21, out float b21a))
-            employeeRepository.Add(new Employee { FirstName = " (Złota Moneta 1-3 11g)", num = b21a });
-
-        //employeeRepository.Add(new Employee { FirstName = " (Złota Sztabka5-20g)" });
-
-
-        //employeeRepository.Add(new Employee { Age = 23 });
-        // employeeRepository.Add(2.80f);
-        //employeeRepository.Add(new Employee = (Console.ReadLine());
-        // var b = Console.ReadLine(); --------------
-        //if (Int32.TryParse(b, out int j))
-        // if (float.TryParse(b, out float j))  //------------- 2
-        employeeRepository.Add(new Employee { num = 2.8088f }); //<<<<<<<<<<<<<<<<<<
-                                                                //employeeRepository.Add(new Employee { num = j });
-                                                                //employeeRepository.Add(new Employee { num = 29.80f });
-                                                                //employeeRepository.Add(new Employee { num = 72.49f });
-                                                                //employeeRepository.Add(new Employee { FirstName = "Adam - Euro " });
-                                                                //xxxxxxxxxxxx
-                                                                //employeeRepository.Add(new Employee { FirstName = "Kurs Waluty - Euro " });  // Wartość Liczbowa
-                                                                //var b2 = Console.ReadLine();
-                                                                //if (float.TryParse(b2, out float j2))  //--- 
-                                                                //   employeeRepository.Add(new Employee { num = j2 });
-                                                                //employeeRepository.Add(new Employee { FirstName = "Piotr - Dolar Amerykański" });
-                                                                //var b3 = float.Parse(Console.ReadLine());
-
-        //  employeeRepository.Add(new Employee { num = b3 });
-        //xxxxxxxxxxxxxxxx
-        //employeeRepository.Add(new Employee { FirstName = "Zuzia - Funt Angielski" });
-        employeeRepository.Save();
-        // employeeRepository.AddItem(2);
-        //employeeRepository.AddGrade(2);
+    if (double.TryParse(przelicznik, out double przelicznik1))
+    {
+        
     }
-//}
+    else
+    {
+        Console.WriteLine("Podałeś niewłaściwa wartość");
+    }
+
+    const double euro = 1.00d;
+    double zł = Math.Round(przelicznik1 / euro, 2);
+    Console.WriteLine("{0} euro = {1} zł", euro, zł);
+    employeeRepository.Add(new Employee { FirstName = " (EURO - Unia Europejska)", num = zł });
+    
+    Console.WriteLine("Podaj Wartość Waluty: Dolar Amerykański USD");
+    var przelicznik2 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik2, out double przelicznik2b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    
+    const double DolarAmerykański = 1.00d;
+    double zł2 = Math.Round(przelicznik2b / DolarAmerykański, 2);
+    Console.WriteLine("{0} Dolar Amerykański = {1} zł", DolarAmerykański, zł2);
+    employeeRepository.Add(new Employee { FirstName = " (Dolar Amerykański)", num = zł2 });
+
+    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Dolar Kanadyjski (CAD)");
+    var przelicznik3 = (Console.ReadLine());
+    if (double.TryParse(przelicznik3, out double przelicznik3b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    double dolarKana = 1.00d;
+    double zł3 = Math.Round(przelicznik3b / dolarKana, 2);
+    Console.WriteLine("{0} DolarKanadyjski = {1} zł", dolarKana, zł3);
+    employeeRepository.Add(new Employee { FirstName = " (Dolar Kanadyjski (CAD))", num = zł3 });
+
+
+    // xxxxxxxxxxxxxxx
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Dolar Australijski (AUD)");
+
+    var przelicznik4 = Console.ReadLine();
+    if (double.TryParse(przelicznik4, out double przelicznik4b))
+    {
+    }
+    else
+    {
+        Console.WriteLine("Niewłaściwa wartość");
+    }
+    const double dolarAustra = 1.00d;
+    double zł4 = Math.Round(przelicznik4b / dolarAustra, 2);
+    Console.WriteLine("{0} DolarAustralijski = {1} zł", dolarAustra, zł4);
+
+    employeeRepository.Add(new Employee { FirstName = " (Dolar Australijski (AUD)", num = zł4 });
+
+    
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Funt Szterling Wielka Brytania (GBP)");
+    var przelicznik5 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik5, out double przelicznik5b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double funtSzterlingBrytyjski = 1.00d;
+    double zł5 = Math.Round(przelicznik5b / funtSzterlingBrytyjski, 2);
+    Console.WriteLine("{0} Funt Szterling Wielka Brytania = {1} zł", funtSzterlingBrytyjski, zł5);
+    employeeRepository.Add(new Employee { FirstName = " (Funt Szterling Wielka Brytania (GBP)", num = zł5 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Frank Szwajcarski (CHF)");
+    var przelicznik6 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik6, out double przelicznik6b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double frankSzwajcarski = 1.00d;
+    double zł6 = Math.Round(przelicznik6b / frankSzwajcarski, 2);
+    Console.WriteLine("{0} Frank Szwajcarski = {1} zł", frankSzwajcarski, zł6);
+    employeeRepository.Add(new Employee { FirstName = " (Frank Szwajcarski (CHF))", num = zł6 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Korona Czeska (CZK)");
+    var przelicznik7 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik7, out double przelicznik7b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double koronaCzeska = 1.00d;
+    double zł7 = Math.Round(przelicznik7b / koronaCzeska, 2);
+    Console.WriteLine("{0} Korona Czeska = {1} zł", koronaCzeska, zł7);
+    employeeRepository.Add(new Employee { FirstName = " (Korona Czeska (CZK))", num = zł7 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Korona Duńska (DKK)");
+    var przelicznik8 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik8, out double przelicznik8b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double koronaDuńska = 1.00d;
+    double zł8 = Math.Round(przelicznik8b / koronaDuńska, 2);
+    Console.WriteLine("{0} Korona Duńska = {1} zł", koronaDuńska, zł8);
+    employeeRepository.Add(new Employee { FirstName = " (Korona Duńska (DKK))", num = zł8 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Korona Norweska (NOK)");
+    var przelicznik9 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik9, out double przelicznik9b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double koronaNorweska = 1.00d;
+    double zł9 = Math.Round(przelicznik9b / koronaNorweska, 2);
+    Console.WriteLine("{0} Korona Norweska = {1} zł", koronaNorweska, zł9);
+    employeeRepository.Add(new Employee { FirstName = " (Korona Norweska (NOK))", num = zł9 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Korona Szwedzka (SEK)");
+    var przelicznik10 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik10, out double przelicznik10b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double koronaSzwedzka = 1.00d;
+    double zł10 = Math.Round(przelicznik10b / koronaSzwedzka, 2);
+    Console.WriteLine("{0} Korona Szwedzka = {1} zł", koronaSzwedzka, zł10);
+    employeeRepository.Add(new Employee { FirstName = " (Korona Szwedzka (SEK))", num = zł10 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Forint Węgry (HUF)");
+    var przelicznik11 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik11, out double przelicznik11b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double forintWęgry = 1.00d;
+    double zł11 = Math.Round(przelicznik11b / forintWęgry, 2);
+    Console.WriteLine("{0} Forint Węgry = {1} zł", forintWęgry, zł11);
+    employeeRepository.Add(new Employee { FirstName = " (Forint Węgry (HUF))", num = zł11 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: lew Bułgaria (BGN)");
+    var przelicznik12 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik12, out double przelicznik12b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double lewBułgaria = 1.00d;
+    double zł12 = Math.Round(przelicznik12b / lewBułgaria, 2);
+    Console.WriteLine("{0} lewBułgaria = {1} zł", lewBułgaria, zł12);
+    employeeRepository.Add(new Employee { FirstName = " (lew Bułgaria (BGN))", num = zł12 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Hrywna Ukraina (UAH)");
+    var przelicznik13 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik13, out double przelicznik13b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double hrywnaUkraina = 1.00d;
+    double zł13 = Math.Round(przelicznik13b / hrywnaUkraina, 2);
+    Console.WriteLine("{0} Hrywna Ukraina = {1} zł", hrywnaUkraina, zł13);
+    employeeRepository.Add(new Employee { FirstName = " (Hrywna Ukraina (UAH))", num = zł13 });
+
+    Console.WriteLine("Podaj Wartość Kursu Kursu Waluty: lej Rumuński (RON)");
+    var przelicznik14 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik14, out double przelicznik14b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double lejRumuński = 1.00d;
+    double zł14 = Math.Round(przelicznik14b / lejRumuński, 2);
+    Console.WriteLine("{0} lej Rumuński = {1} zł", lejRumuński, zł14);
+    employeeRepository.Add(new Employee { FirstName = " (lej Rumuński (RON))", num = zł14 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: Jen Japonia (JPY)");
+    var przelicznik15 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik15, out double przelicznik15b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double jenJaponia = 1.00d;
+    double zł15 = Math.Round(przelicznik15b / jenJaponia, 2);
+    Console.WriteLine("{0} Jen Japonia = {1} zł", jenJaponia, zł15);
+    employeeRepository.Add(new Employee { FirstName = " (Jen Japonia (JPY))", num = zł15 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: yuan renmimbi Chiny (CNY)");
+    var przelicznik16 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik16, out double przelicznik16b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double yuanrenmimbiChiny = 1.00d;
+    double zł16 = Math.Round(przelicznik16b / yuanrenmimbiChiny, 2);
+    Console.WriteLine("{0} yuan renmimbi Chiny = {1} zł", yuanrenmimbiChiny, zł16);
+    employeeRepository.Add(new Employee { FirstName = " (yuan renmimbi Chiny (CNY))", num = zł16 });
+
+    Console.WriteLine("Podaj Wartość Kursu Waluty: lira Turecka (TRY)");
+    var przelicznik17 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik17, out double przelicznik17b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double liraTurecka = 1.00d;
+    double zł17 = Math.Round(przelicznik17b / liraTurecka, 2);
+    Console.WriteLine("{0} lira Turecka = {1} zł", liraTurecka, zł17);
+    employeeRepository.Add(new Employee { FirstName = " (lira Turecka (TRY))", num = zł17 });
+
+    employeeRepository.Save();
+}
+
     
 
 
-
-//var float num;
-//List<Employee> employees = new List<Employee>()
-//{
-//  employeeRepository;
-//ListRepository;
-//Employee;
-
-//    };
-//foreach (var num in nums)
-//  {
-//   Console.WriteLine(num);
-//}
-//
-
-//object value = employeeRepository.Additem(5);
-//employeeRepository.Additem(9);
-
 static void AddMenagers(IWriteRepository<Menager> menagerRepository)
 {
-    //menagerRepository.Add(new Menager { Age = 23 });
-    menagerRepository.Add(new Menager { FirstName =  "Przemek" });
-    //menagerRepository.Add(new Menager { FirstName = "Tomek" });
+    Console.WriteLine("Podaj Wartość Złota: Złota Sztabka5-50g");
+    var przelicznik18 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik18, out double przelicznik18b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    const double złotaSztabka = 1.00d;
+    double zł18 = Math.Round(przelicznik18b / złotaSztabka, 2);
+    Console.WriteLine("{0} Złota Sztabka5-50g = {1} zł", złotaSztabka, zł18);
+    menagerRepository.Add(new Menager { FirstName = " Złota Sztabka5-50g", num = zł18 });
+
+    Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
+    var przelicznik19 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik19, out double przelicznik19b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    const double złotaMoneta = 1.00d;
+    double zł19 = Math.Round(przelicznik19b / złotaMoneta, 2);
+    Console.WriteLine("{0} Złota Sztabka5-50g = {1} zł", złotaMoneta, zł19);
+    menagerRepository.Add(new Menager { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
+
     menagerRepository.Save();
 }
 
@@ -262,108 +347,4 @@ static void WriteAllToConsole(IReadRepository<IEntity> repository)
     {
         Console.WriteLine(item);
     }
-
 }
-
-//.........................
-// DRUGI SPOSOB ZAPISU
-
-//    // IEnumerable<T> GetAll();  --  Interface IEnumerable - Lekcja 14
-//                                  - jest w Pliku  IRepository.cs , IReadRepository
-
-//---------------------
-//List<employeeRepository> employeeRepositories = new List<employeeRepository>()
-//{
-//   employeeRepository
-//};
-//---------------------
-
-//GetEmployeeById(employeeRepository); // Opis Zobacz nr 3 Lekcja 19
-
-//  OPIS KODU PROG
-//   Specjalna Metoda Która Ma IRepository<Employee> od Employee  Lekcja 19
-//----------
-//static void GetEmployeeById(IRepository<IEntity> employeeRepository)
-//{
-//    var employee = employeeRepository.GetById(1); // Opis Zobacz nr 2 Lekcja 19
-//    var employee1 = employeeRepository.GetById(3);
-//   Console.WriteLine(employee.ToString()); // Opis Zobacz nr 2 Lekcja 19 -listowanie
-//    Console.WriteLine(employee1.ToString());
-//}
-// --------------
-//var empl = employeeRepository.GetById(1);
-//Console.WriteLine(empl.ToString());
-//var emp = employeeRepository.GetById(3);
-//Console.WriteLine(emp.ToString());
-
-
-// INFORMACJE
-
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - Zobacz nr 1
-// KODY w Plikach z LEKCJI 21
-
-// Opisy Lini Kodów w Programie
-
-// Lekcja 21
-// Zmiany w Kodzie Prog           // Opis Zobacz nr 1
-
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - -
-
-// ----------
-// INFO WAŻNE
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - Zobacz nr 1
-// KODY w Plikach z LEKCJI 19
-//          - Zmiany w Kodzie Programu
-//          - SqlRepository z Employee i naszym MotoAppDbContext który mamy przygotowany 0:45 sec
-//            SqlRepository<Employee>
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - Zobacz nr 2
-
-//  var employee = employeeRepository.GetById(2); // Opis Zobacz nr 2 Lekcja 19
-
-// - specjalną metode która będzie miała w Parametrze
-//   IRepository od Employee i dzięki temu możemy na tym w Interface wywołać
-//              np. GetById() i go Wylistować przez employee
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - Zobacz nr 3
-//             - // Opis
-//                    - Zobacz Notatki nr 1 z Lekcji 19 1:15 min
-
-
-// - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - -
-
-// KODY w Plikach z LEKCJI 18
-//          - Zmiany w Kodzie Programu
-
-// KODY w Plikach z LEKCJI 17
-//          - Kod w Liniach Powiazany ze Sobą Miedzy Trzema Plikami
-//            Kod w Liniach Musi Być Odpowiednio Dopasowany do Siebie
-//            do Kodu w każdym z Trzech Plików 
-//            Bo Jak Nie To Są Błędy w Programie
-//              - GenericRepository.cs
-//              - SqlRepository.cs
-//              - Program.cs  
-//             
-
-
-// KODY w Plikach z LEKCJI 16
-//          - Kod w Liniach Powiazany ze Sobą Miedzy Trzema Plikami
-//            Kod w Liniach Musi Być Odpowiednio Dopasowany do Siebie
-//            do Kodu w każdym z Trzech Plików 
-//            Bo Jak Nie To Są Błędy w Programie
-//              - GenericRepositoryWithRemove.cs
-//              - GenericRepository.cs
-//              - Program.cs  
-//             
-

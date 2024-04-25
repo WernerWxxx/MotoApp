@@ -10,7 +10,6 @@
   <ItemGroup>
     <PackageReference Include="DM.Microsoft.EntityFrameworkCore" Version="7.0.0.20986" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
-    <PackageReference Include="Stenn.EntityFrameworkCore.InMemory.Extensions.DependencyInjection" Version="7.9.50" />
   </ItemGroup>
 
 </Project>
