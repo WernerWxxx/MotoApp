@@ -334,7 +334,7 @@ static void AddMenagers(IWriteRepository<Menager> menagerRepository)
 
     const double złotaMoneta = 1.00d;
     double zł19 = Math.Round(przelicznik19b / złotaMoneta, 2);
-    Console.WriteLine("{0} Złota Sztabka5-50g = {1} zł", złotaMoneta, zł19);
+    Console.WriteLine("{0} Złota Moneta 1-3 11g = {1} zł", złotaMoneta, zł19);
     menagerRepository.Add(new Menager { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
 
     menagerRepository.Save();
