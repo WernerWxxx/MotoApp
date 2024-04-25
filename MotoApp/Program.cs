@@ -14,6 +14,7 @@ WriteAllToConsole(employeeRepository);
 
 static void AddEmployees(IRepository<Employee> employeeRepository)
 {
+    Console.WriteLine("Program Obliczający kursy różnych walut na złotówki");
     Console.WriteLine("Podaj Wartość Kursu Waluty:  EURO - Unia Europejska");
     var przelicznik = Console.ReadLine();
 
@@ -315,9 +316,7 @@ static void AddMenagers(IWriteRepository<Menager> menagerRepository)
     {
         Console.WriteLine("Podałeś Niewłaściwa wartość");
     }
-    const double złotaSztabka = 1.00d;
-    double zł18 = Math.Round(przelicznik18b / złotaSztabka, 2);
-    Console.WriteLine("{0} Złota Sztabka5-50g = {1} zł", złotaSztabka, zł18);
+    double zł18 = przelicznik18b;
     menagerRepository.Add(new Menager { FirstName = " Złota Sztabka5-50g", num = zł18 });
 
     Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
@@ -332,9 +331,7 @@ static void AddMenagers(IWriteRepository<Menager> menagerRepository)
         Console.WriteLine("Podałeś Niewłaściwa wartość");
     }
 
-    const double złotaMoneta = 1.00d;
-    double zł19 = Math.Round(przelicznik19b / złotaMoneta, 2);
-    Console.WriteLine("{0} Złota Moneta 1-3 11g = {1} zł", złotaMoneta, zł19);
+    double zł19 = przelicznik19b;
     menagerRepository.Add(new Menager { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
 
     menagerRepository.Save();

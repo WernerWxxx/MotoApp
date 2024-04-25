@@ -7,6 +7,6 @@ namespace MotoApp.Entities
     {
         public string? FirstName { get; set; }
 
-        public override string ToString() => $"Id: {Id}, Name: {FirstName}, numNUM: {num} ";
+        public override string ToString() => $"Id: {Id}, Name: {FirstName}, Wartość: {num} ";
     }
 }

@@ -2,5 +2,5 @@
 
 public class Menager : Employee
 {
-    public override string ToString() => base.ToString() + " (Metale Szlachetne)" + $" num: {num}";
+    public override string ToString() => base.ToString() + " (Metale Szlachetne)" + $" Wartość: {num}";
 }
