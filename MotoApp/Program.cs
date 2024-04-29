@@ -15,6 +15,7 @@ WriteAllToConsole(employeeRepository);
 static void AddEmployees(IRepository<Employee> employeeRepository)
 {
     Console.WriteLine("Program Obliczający kursy różnych walut na złotówki");
+
     Console.WriteLine("Podaj Wartość Kursu Waluty:  EURO - Unia Europejska");
     var przelicznik = Console.ReadLine();
 
