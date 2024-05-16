@@ -2,15 +2,18 @@
 using MotoApp.Entities;
 using MotoApp.Repositories;
 using System;
-using System.Collections.Specialized;
-using System.Diagnostics;
-using System.Drawing;
-using System.Globalization;
 
-var employeeRepository = new SqlRepository<Employee>(new MotoAppDbContext());
-AddEmployees(employeeRepository);
-AddMenagers(employeeRepository);
-WriteAllToConsole(employeeRepository);
+
+var sqlemployeeRepository = new SqlRepository<Employee>(new MotoAppDbContext());  // - Poprawki Wpisy sql
+var sqlmenagerRepository = new SqlRepository<Menager>(new MotoAppDbContext());
+//SqlEmployeesRepository._itemAdded += employeeAdded;
+//sqlEmployeeRepository._itemAdded += EmployeeAdded;
+AddEmployees(sqlemployeeRepository);
+WriteAllToConsole(sqlemployeeRepository);  // - Poprawki Wpisy sql
+AddMenagers(sqlmenagerRepository);
+
+WriteAllToConsole(sqlmenagerRepository);
+
 
 static void AddEmployees(IRepository<Employee> employeeRepository)
 {
@@ -21,7 +24,7 @@ static void AddEmployees(IRepository<Employee> employeeRepository)
 
     if (double.TryParse(przelicznik, out double przelicznik1))
     {
-        
+
     }
     else
     {
@@ -32,7 +35,7 @@ static void AddEmployees(IRepository<Employee> employeeRepository)
     double zł = Math.Round(przelicznik1 / euro, 2);
     Console.WriteLine("{0} euro = {1} zł", euro, zł);
     employeeRepository.Add(new Employee { FirstName = " (EURO - Unia Europejska)", num = zł });
-    
+
     Console.WriteLine("Podaj Wartość Waluty: Dolar Amerykański USD");
     var przelicznik2 = Console.ReadLine();
 
@@ -44,13 +47,14 @@ static void AddEmployees(IRepository<Employee> employeeRepository)
     {
         Console.WriteLine("Podałeś Niewłaściwa wartość");
     }
-    
+
     const double DolarAmerykański = 1.00d;
     double zł2 = Math.Round(przelicznik2b / DolarAmerykański, 2);
     Console.WriteLine("{0} Dolar Amerykański = {1} zł", DolarAmerykański, zł2);
     employeeRepository.Add(new Employee { FirstName = " (Dolar Amerykański)", num = zł2 });
 
     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /*
     Console.WriteLine("Podaj Wartość Kursu Waluty: Dolar Kanadyjski (CAD)");
     var przelicznik3 = (Console.ReadLine());
     if (double.TryParse(przelicznik3, out double przelicznik3b))
@@ -297,15 +301,7 @@ static void AddEmployees(IRepository<Employee> employeeRepository)
     double zł17 = Math.Round(przelicznik17b / liraTurecka, 2);
     Console.WriteLine("{0} lira Turecka = {1} zł", liraTurecka, zł17);
     employeeRepository.Add(new Employee { FirstName = " (lira Turecka (TRY))", num = zł17 });
-
-    employeeRepository.Save();
-}
-
-    
-
-
-static void AddMenagers(IWriteRepository<Menager> menagerRepository)
-{
+        */
     Console.WriteLine("Podaj Wartość Złota: Złota Sztabka5-50g");
     var przelicznik18 = Console.ReadLine();
 
@@ -318,7 +314,7 @@ static void AddMenagers(IWriteRepository<Menager> menagerRepository)
         Console.WriteLine("Podałeś Niewłaściwa wartość");
     }
     double zł18 = przelicznik18b;
-    menagerRepository.Add(new Menager { FirstName = " Złota Sztabka5-50g", num = zł18 });
+    employeeRepository.Add(new Employee { FirstName = " Złota Sztabka5-50g", num = zł18 });
 
     Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
     var przelicznik19 = Console.ReadLine();
@@ -333,16 +329,86 @@ static void AddMenagers(IWriteRepository<Menager> menagerRepository)
     }
 
     double zł19 = przelicznik19b;
-    menagerRepository.Add(new Menager { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
+    employeeRepository.Add(new Employee { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
+    employeeRepository.Save();
+}
+
+static void AddMenagers(IRepository<Menager> employeeRepository)
+{
+    Console.WriteLine("Podaj Wartość Złota: Złota Sztabka5-50g");
+    var przelicznik18 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik18, out double przelicznik18b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    double zł18 = przelicznik18b;
+    employeeRepository.Add(new Menager { FirstName = " Złota Sztabka5-50g", num = zł18 });
+
+    Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
+    var przelicznik19 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik19, out double przelicznik19b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    double zł19 = przelicznik19b;
+    employeeRepository.Add(new Menager { FirstName = " (Złota Moneta 1-3 11g)", num = zł19 });
+
+    employeeRepository.Save();
+}
+
+
+/*
+static void AddMenagers(IWriteRepository<Menager> menagerRepository)
+{
+    Console.WriteLine("Podaj Wartość Złota: Złota Sztabka5-50g");
+    var przelicznik18 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik18, out double przelicznik18b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+    double zł18 = przelicznik18b;
+    menagerRepository.Add(new Menager { Name2 = " Złota Sztabka5-50g", num = zł18 });
+
+    Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
+    var przelicznik19 = Console.ReadLine();
+
+    if (double.TryParse(przelicznik19, out double przelicznik19b))
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Podałeś Niewłaściwa wartość");
+    }
+
+    double zł19 = przelicznik19b;
+    menagerRepository.Add(new Menager { Name2 = " (Złota Moneta 1-3 11g)", num = zł19 });
 
     menagerRepository.Save();
 }
+*/
 
 static void WriteAllToConsole(IReadRepository<IEntity> repository)
 {
-    var items = repository.GetAll();
-    foreach (var item in items)
-    {
-        Console.WriteLine(item);
-    }
+        var items = repository.GetAll();
+        foreach (var item in items)
+        {
+            Console.WriteLine(item);
+        }
 }

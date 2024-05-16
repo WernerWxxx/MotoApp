@@ -8,6 +8,8 @@ public class MotoAppDbContext : DbContext
 {
     public DbSet<Employee> Employees => Set<Employee>();
 
+    public DbSet<Menager> Menagers => Set<Menager>();
+
     public DbSet<BusinessPartner> BusinessPartners => Set<BusinessPartner>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -15,4 +17,5 @@ public class MotoAppDbContext : DbContext
 
         optionsBuilder.UseInMemoryDatabase("StorageMotoAppDb");
     }
+    
 }

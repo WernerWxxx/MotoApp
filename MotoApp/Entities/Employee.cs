@@ -1,5 +1,6 @@
 ﻿using MotoApp.Repositories;
 using System.Globalization;
+using System.Diagnostics.Contracts;
 
 namespace MotoApp.Entities
 {

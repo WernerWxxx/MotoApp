@@ -8,8 +8,8 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
     private readonly DbContext _dbContext;
     private readonly DbSet<T> _dbSet;
-    private char przelicznik2;
-    private char przelicznik;
+    //private char przelicznik2;
+    //private char przelicznik;
 
     public SqlRepository(DbContext dbContext)
     {
@@ -39,7 +39,7 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     }
 
    
-
+    /*
     public void Calculation()
     {
         while (true)
@@ -55,8 +55,14 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
 
         }
     }
+    */
     public void Add(double num)
     {
         _dbContext.SaveChanges();
     }
+    //public void Add(double num2)
+    //{
+      //  _dbContext.SaveChanges();
+    //}
+
 }
