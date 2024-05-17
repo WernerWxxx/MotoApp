@@ -7,5 +7,5 @@ using MotoApp.Entities;
     IEnumerable<T> GetAll();
     T GetById(int id);
 
-    void Add(double num);
+    void Add(double zmiennaWalutiMetali);
     }

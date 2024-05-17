@@ -8,8 +8,6 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
     private readonly DbContext _dbContext;
     private readonly DbSet<T> _dbSet;
-    //private char przelicznik2;
-    //private char przelicznik;
 
     public SqlRepository(DbContext dbContext)
     {
@@ -38,31 +36,8 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
         _dbContext.SaveChanges();
     }
 
-   
-    /*
-    public void Calculation()
-    {
-        while (true)
-        {
-            var input = Console.ReadLine();
-
-            if (input == "q")
-            {
-                break;
-            }
-
-            if (float.TryParse(input, out float inputa));
-
-        }
-    }
-    */
-    public void Add(double num)
+    public void Add(double zmiennaWalutiMetali)
     {
         _dbContext.SaveChanges();
     }
-    //public void Add(double num2)
-    //{
-      //  _dbContext.SaveChanges();
-    //}
-
 }

@@ -7,15 +7,7 @@ public class ListRepository<T> : IRepository<T> where T : class, IEntity, new()
 {
    
     private readonly List<T> _items = new();
-    public readonly List<double> nums = new();
-
-    // definicja typowanej tablicy
-    //private int[] array;
-    // definicja generycznej tablicy
-    //private T[] genericArray;
-    // ustalenie rozmiaru tablicy generycznej
-    //genericArray = new T[size + 1];
-    //private readonly List<double> nums2 = new();
+    public readonly List<double> zmiennaWalutiMetalis = new();
 
     public IEnumerable<T> GetAll()
     {
@@ -44,12 +36,9 @@ public class ListRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
         _items.Remove(item);
     }
-    public void Add(double num)
+    public void Add(double zmiennaWalutiMetali)
     {
-        nums.Add(num);
+        zmiennaWalutiMetalis.Add(zmiennaWalutiMetali);
     }
-    //public void Add(double num2)
-    //{
-    //    nums2.Add(num2);
-   // }
+
 }

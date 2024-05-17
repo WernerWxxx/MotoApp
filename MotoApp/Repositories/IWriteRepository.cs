@@ -8,5 +8,5 @@ public interface IWriteRepository<in T> where T : class, IEntity
     void Add(T item);
     void Remove(T item);
     void Save();
-    void Add(double num);
+    void Add(double zmiennaWalutiMetali);
 }

@@ -6,11 +6,10 @@ using MotoApp.Repositories;
 
 public class MotoAppDbContext : DbContext
 {
-    public DbSet<Employee> Employees => Set<Employee>();
+    public DbSet<WalutyPanstw> WalutyPanstw => Set<WalutyPanstw>();
 
-    public DbSet<Menager> Menagers => Set<Menager>();
+    public DbSet<MetaleSzlachetne> MetaleSzlachetne => Set<MetaleSzlachetne>();
 
-    public DbSet<BusinessPartner> BusinessPartners => Set<BusinessPartner>();
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
