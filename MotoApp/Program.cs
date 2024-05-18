@@ -4,16 +4,13 @@ using MotoApp.Repositories;
 using System;
 
 
-var sqlwalutyPanstwRepository = new SqlRepository<WalutyPanstw>(new MotoAppDbContext());  // - Poprawki Wpisy sql
+var sqlwalutyPanstwRepository = new SqlRepository<WalutyPanstw>(new MotoAppDbContext());
 var sqlmetaleSzlachetneRepository = new SqlRepository<MetaleSzlachetne>(new MotoAppDbContext());
-//SqlEmployeesRepository._itemAdded += employeeAdded;
-//sqlEmployeeRepository._itemAdded += EmployeeAdded;
+
 AddWalutyPanstw(sqlwalutyPanstwRepository);
+WriteAllToConsole(sqlwalutyPanstwRepository);
 
-
-WriteAllToConsole(sqlwalutyPanstwRepository);  // - Poprawki Wpisy sql
 AddMetaleSzlachetne(sqlmetaleSzlachetneRepository);
-
 WriteAllToConsole(sqlmetaleSzlachetneRepository);
 
 
@@ -310,7 +307,7 @@ static void AddWalutyPanstw(IRepository<WalutyPanstw> walutyPanstwRepository)
 
 static void AddMetaleSzlachetne(IRepository<MetaleSzlachetne> employeeRepository)
 {
-    Console.WriteLine("Podaj Wartość Złota: Złota Sztabka5-50g");
+    Console.WriteLine("Podaj Wartość Złota: Złota Sztabka: 5-50g");
     var przelicznik18 = Console.ReadLine();
 
     if (double.TryParse(przelicznik18, out double przelicznik18b))
@@ -322,6 +319,7 @@ static void AddMetaleSzlachetne(IRepository<MetaleSzlachetne> employeeRepository
         Console.WriteLine("Podałeś Niewłaściwa wartość");
     }
     double zł18 = przelicznik18b;
+
     employeeRepository.Add(new MetaleSzlachetne { FirstName = " Złota Sztabka: 5-50g", zmiennaWalutiMetali = zł18 });
 
     Console.WriteLine("Podaj Wartość Złota: Złota Moneta 1-3 11g");
@@ -339,10 +337,10 @@ static void AddMetaleSzlachetne(IRepository<MetaleSzlachetne> employeeRepository
     double zł19 = przelicznik19b;
     employeeRepository.Add(new MetaleSzlachetne { FirstName = " (Złota Moneta: 1-3 11g)", zmiennaWalutiMetali = zł19 });
 
-    Console.WriteLine("Podaj Wartość Srebra: 1g");
+    Console.WriteLine("Podaj Wartość Srebra:");
     var przelicznik20 = Console.ReadLine();
 
-    if (double.TryParse(przelicznik19, out double przelicznik20b))
+    if (double.TryParse(przelicznik20, out double przelicznik20b))
     {
 
     }
@@ -352,7 +350,7 @@ static void AddMetaleSzlachetne(IRepository<MetaleSzlachetne> employeeRepository
     }
 
     double zł20 = przelicznik20b;
-    employeeRepository.Add(new MetaleSzlachetne { FirstName = " (Srebrna Sztabka: 1-3 11g)", zmiennaWalutiMetali = zł20 });
+    employeeRepository.Add(new MetaleSzlachetne { FirstName = " (Srebrna Sztabka: 1g)", zmiennaWalutiMetali = zł20 });
 
     employeeRepository.Save();
 }
