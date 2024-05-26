@@ -6,9 +6,9 @@ using MotoApp.Repositories;
 
 public class MotoAppDbContext : DbContext
 {
-    public DbSet<WalutyPanstw> WalutyPanstw => Set<WalutyPanstw>();
+    public DbSet<CountriesCurrencies> CountriesCurrencies => Set<CountriesCurrencies>();
 
-    public DbSet<MetaleSzlachetne> MetaleSzlachetne => Set<MetaleSzlachetne>();
+    public DbSet<PreciousMetals> PreciousMetals => Set<PreciousMetals>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

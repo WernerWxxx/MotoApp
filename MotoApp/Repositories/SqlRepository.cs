@@ -36,8 +36,4 @@ public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
         _dbContext.SaveChanges();
     }
 
-    public void Add(double zmiennaWalutiMetali)
-    {
-        _dbContext.SaveChanges();
-    }
 }

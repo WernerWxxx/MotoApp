@@ -7,7 +7,6 @@ public class ListRepository<T> : IRepository<T> where T : class, IEntity, new()
 {
    
     private readonly List<T> _items = new();
-    public readonly List<double> zmiennaWalutiMetalis = new();
 
     public IEnumerable<T> GetAll()
     {
@@ -30,15 +29,12 @@ public class ListRepository<T> : IRepository<T> where T : class, IEntity, new()
     public T GetById(int id)
     {
         return _items.Single(item => item.Id == id);
+
     }
 
     public void Remove(T item)
     {
         _items.Remove(item);
-    }
-    public void Add(double zmiennaWalutiMetali)
-    {
-        zmiennaWalutiMetalis.Add(zmiennaWalutiMetali);
     }
 
 }
